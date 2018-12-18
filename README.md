@@ -105,7 +105,7 @@ Consider the text: ```A new generation of advanced ground-based and space-borne 
 
 Whitespace analyzer: ```A, new, generation, of, advanced, ground-based, and, space-borne, telescopes.```
 
-Standard analyzer: ```A, new, generation, of, advanced, ground, based, and, space, borne, telescopes```.
+Standard analyzer: ```A, new, generation, of, advanced, ground, based, and, space, borne, telescopes```
 
 ## References
 
