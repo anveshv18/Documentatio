@@ -98,6 +98,15 @@ This analyzer is used mainly to remove the conjunctions (e.g:and,at,in ,but, etc
 ### Synonyms Analyzer
 This analyzer is used to increase the flexibility of search With minimal configuration. Suppose we want to search a keyword "center for computational relativity and gravitation", it looks bit weired and lazy to type this huge keyword and we are defining this keyword as "ccrg". If you enter "ccrg" the results related to "center for computational relativity and gravitation" will get diplayed. 
 
+### Whitespace Analyzer
+The whitespace analyzer breaks text into terms whenever it encounters a whitespace character.
+
+Consider the text: ```A new generation of advanced ground-based and space-borne telescopes.``` 
+
+Whitespace analyzer: ```A, new, generation, of, advanced, ground-based, and, space-borne, telescopes.```
+
+Standard analyzer: ```A, new, generation, of, advanced, ground, based, and, space, borne, telescopes```.
+
 ## References
 
 - https://www.elastic.co
