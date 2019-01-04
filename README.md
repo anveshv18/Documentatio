@@ -5,7 +5,7 @@ Index configuration includes
   - stopwords
   - Snowball
 
-## Main Index Mapping
+## Main Index & Mapping
 ```PUT index
 {
    "settings":{
@@ -86,7 +86,7 @@ Index configuration includes
    }
 }
 ```
-## Status Index Mapping
+## Status Index & Mapping
 ```
 {
     "settings": {
@@ -126,7 +126,7 @@ Index configuration includes
     }
 }
 ```
-## Metrics Index Mapping
+## Metrics Index & Mapping
 ```
 {
   "template": "metrics*",
