@@ -86,7 +86,7 @@ Index configuration includes
    }
 }
 ```
-Note: By Default elastic search able to search 10,000 documents. We need to change the max result limit inorder to fetch the results more than 10,000 and likewise change the max rescore to the result same as results limit.
+**Note:** By Default elastic search able to search 10,000 documents. We need to change the max result limit inorder to fetch the results more than 10,000 and likewise change the max rescore to the result same as results limit.
 ```
 PUT index/_settings
 {
