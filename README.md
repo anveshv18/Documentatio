@@ -5,13 +5,13 @@ Index configuration includes
   - stopwords
   - Snowball
 
-## Index Mapping
+## Main Index Mapping
 ```PUT index
 {
    "settings":{
       "index":{
          "number_of_shards":4,
-         "number_of_replicas":1,
+         "number_of_replicas":0,
          "refresh_interval":"500ms",
          "analysis":{
             "analyzer":{
@@ -49,7 +49,7 @@ Index configuration includes
       }
    },
    "mappings":{
-      "_doc":{
+      "doc":{
          "_source":{
             "enabled":true
          },
@@ -84,6 +84,88 @@ Index configuration includes
          }
       }
    }
+}
+```
+## Status Index Mapping
+```
+{
+    "settings": {
+        "index": {
+            "number_of_shards": 10,
+            "number_of_replicas": 0,
+            "refresh_interval": "5s"
+        }
+    },
+    "mappings": {
+        "status": {
+            "dynamic_templates": [{
+                "metadata": {
+                    "path_match": "metadata.*",
+                    "match_mapping_type": "string",
+                    "mapping": {
+                        "type": "keyword"
+                    }
+                }
+            }],
+            "_source": {
+                "enabled": true
+            },
+            "properties": {
+                "nextFetchDate": {
+                    "type": "date",
+                    "format": "dateOptionalTime"
+                },
+                "status": {
+                    "type": "keyword"
+                },
+                "url": {
+                    "type": "keyword"
+                }
+            }
+        }
+    }
+}
+```
+## Metrics Index Mapping
+```
+{
+  "template": "metrics*",
+  "settings": {
+    "index": {
+      "number_of_shards": 1,
+      "refresh_interval": "30s"
+    },
+    "number_of_replicas" : 0
+  },
+  "mappings": {
+    "datapoint": {
+      "_source":         { "enabled": true },
+      "properties": {
+          "name": {
+            "type": "keyword"
+          },
+          "srcComponentId": {
+            "type": "keyword"
+          },
+          "srcTaskId": {
+            "type": "long"
+          },
+          "srcWorkerHost": {
+            "type": "keyword"
+          },
+          "srcWorkerPort": {
+            "type": "long"
+          },
+          "timestamp": {
+            "type": "date",
+            "format": "dateOptionalTime"
+          },
+          "value": {
+            "type": "double"
+          }
+      }
+    }
+  }
 }
 ```
 ### Stemmer Analyzer 
