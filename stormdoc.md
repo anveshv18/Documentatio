@@ -1,6 +1,15 @@
 
 ## Storm Crawler Documentation
 
+Main configuration includes 
+
+* crawler-conf.yaml
+* es-crawler.flux
+* es-injector.flux
+* es-conf.yaml
+* pom.xml
+* crawltopology.java
+
 - ### crawler-conf.yaml
 ```
 config: 
