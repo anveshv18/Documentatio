@@ -23,6 +23,8 @@ config:
   # these are also persisted for the parent document (see below)
   # metadata.transfer:
   # - customMetadataName
+  metadata.transfer:
+   - seed
 
   # lists the metadata to persist to storage
   # these are not transfered to the outlinks
