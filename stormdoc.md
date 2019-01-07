@@ -10,7 +10,7 @@ Main configuration includes
 * pom.xml
 * crawltopology.java
 
-- ### crawler-conf.yaml
+### crawler-conf.yaml
 ```
 config: 
   topology.workers: 1
@@ -107,7 +107,7 @@ config:
      - class: "org.apache.storm.metric.LoggingMetricsConsumer"
        parallelism.hint: 1
 ```
-- ### es-crawler.flux
+### es-crawler.flux
 ```
 name: "Crawler"
 
@@ -246,7 +246,7 @@ streams:
       type: LOCAL_OR_SHUFFLE
       streamId: "tika"
 ```
-- ### es-injector.flux
+### es-injector.flux
 ```
 name: "injector"
 
@@ -291,7 +291,7 @@ streams:
           - "byHost"
       streamId: "status"
  ```
-- ### es-conf.yaml
+### es-conf.yaml
 ```
 # configuration for Elasticsearch resources
   
@@ -389,7 +389,7 @@ config:
          #  - "__receive.*"
 ```
 
-- ### pom.xml
+### pom.xml
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -516,7 +516,7 @@ config:
 	</dependencies>
 </project>
 ```
-- ### crawltoplology.java
+### crawltoplology.java
 ```
 package com.test.edu;
 
