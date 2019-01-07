@@ -293,25 +293,30 @@ config:
   es.indexer.addresses: "https://elasticserver:9271"
   es.indexer.index.name: "index"
   # es.indexer.pipeline: "_PIPELINE_"
+  #### Check the document type thoroughly it needs to match with the elastic search index mapping ####
   es.indexer.doc.type: "doc"
   es.status.user: "USERNAME"
   es.status.password: "PASSWORD"
   es.indexer.create: false
+  #### Change the Cluster Name ####
   es.indexer.settings:
-    cluster.name: "rit-web"
+    cluster.name: "web"
   
   # ES metricsConsumer
   es.metrics.addresses: "https://elasticserver:9271"
   es.metrics.index.name: "metrics"
+  #### Check the document type thoroughly it needs to match with the elastic search index mapping ####
   es.metrics.doc.type: "datapoint"
   es.status.user: "USERNAME"
   es.status.password: "PASSWORD"
+  #### Change the Cluster Name ####
   es.metrics.settings:
-    cluster.name: "rit-web"
+    cluster.name: "web"
   
   # ES spout and persistence bolt
   es.status.addresses: "https://elasticserver:9271"
   es.status.index.name: "status"
+  #### Check the document type thoroughly it needs to match with the elastic search index mapping ####
   es.status.doc.type: "status"
   es.status.user: "USERNAME"
   es.status.password: "PASSWORD"
@@ -323,8 +328,9 @@ config:
   es.status.bulkActions: 500
   es.status.flushInterval: "5s"
   es.status.concurrentRequests: 1
+  #### Change the Cluster Name ####
   es.status.settings:
-    cluster.name: "rit-web"
+    cluster.name: "web"
   
   ################
   # spout config #
