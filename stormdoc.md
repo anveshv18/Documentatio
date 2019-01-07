@@ -42,7 +42,8 @@ config:
   # The maximum number of bytes for returned HTTP response bodies.
   # The fetched page will be trimmed to 65KB in this case
   # Set -1 to disable the limit.
-  http.content.limit: 65536
+  http.content.limit: -1
+  jsoup.treat.non.html.as.error: false
 
   # FetcherBolt queue dump => comment out to activate
   # if a file exists on the worker machine with the corresponding port number
@@ -88,6 +89,7 @@ config:
   - parse.keywords=keywords
   - parse.description=description
   - domain=domain
+  - seed=seed
 
   # Metrics consumers:
   topology.metrics.consumer.register:
