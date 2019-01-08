@@ -198,6 +198,63 @@ Whitespace analyzer: ```A, new, generation, of, advanced, ground-based, and, spa
 
 Standard analyzer: ```A, new, generation, of, advanced, ground, based, and, space, borne, telescopes```
 
+
+### Deleting the results 
+
+To delete the records  consider the below indexes main-index & status-index
+
+- main-index results
+```
+_index: "main-index",
+_type: "doc",
+_id: "689251e67ed7b7071fbf4196a805cb3fe60d2322e5feaf95baf1f5f5888c86f6",
+_score: 10.67163,
+_source: {
+content: "Bachelor's Brochure | Master's Brochure   The University offers quality American bachelor and master's degrees in business, leadership, computing and engineering, that teach and practice global intelligence and provide you with relevant work experience through our cooperative education program that will make you stand out in the competitive job market. In today’s technological oriented world, engineering and computing skills are highly sought after by all kinds of businesses, and the opportunities for professional success are limitless. RIT’s Kate Gleason College of Engineering and B. Thomas Golisano College of Computing and Information Sciences in New York have outstanding record of producing graduates who are well versed in all aspects of current engineering and computing practices. You will be prepared to lead technical innovation and develop next-generation products and processes, and be ready for the challenges of your profession.",
+url: "https://www.rit.edu/dubai/academics/degreeprograms",
+domain: "rit.edu",
+description: [],
+title: []
+```
+
+- status-index results
+```
+{
+_index: "status-index",
+_type: "status",
+_id: "689251e67ed7b7071fbf4196a805cb3fe60d2322e5feaf95baf1f5f5888c86f6",
+_score: 1,
+_routing: "www.rit.edu",
+_source: {
+url: "https://www.rit.edu/dubai/academics/degreeprograms",
+status: "FETCHED",
+metadata: {
+url%2Epath: [
+"https://www.rit.edu/dubai",
+"https://www.rit.edu/dubai/"
+],
+depth: [
+"2"
+],
+hostname: "www.rit.edu"
+},
+nextFetchDate: "2019-01-08T19:05:18.000Z"
+}
+},
+```
+In order to delete the results from the index choose the desired result id of the generated results and delete by using that id by running the DELETE API
+
+```
+DELETE /main-index/doc/689251e67ed7b7071fbf4196a805cb3fe60d2322e5feaf95baf1f5f5888c86f6
+```
+
+Delete the same result as well as in the status-index. You will find same match id in the status-index. If you won't delete in the status-index there may be a chances that crawler refetch that page and index into the main-index
+
+```
+DELETE /status-index/doc/689251e67ed7b7071fbf4196a805cb3fe60d2322e5feaf95baf1f5f5888c86f6
+```
+
+
 ## References
 
 - https://www.elastic.co
