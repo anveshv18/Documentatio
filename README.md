@@ -251,7 +251,7 @@ DELETE /main-index/doc/689251e67ed7b7071fbf4196a805cb3fe60d2322e5feaf95baf1f5f58
 Delete the same result as well as in the status-index. You will find same match id in the status-index. If you won't delete in the status-index there may be a chances that crawler refetch that page and index into the main-index
 
 ```
-DELETE /status-index/doc/689251e67ed7b7071fbf4196a805cb3fe60d2322e5feaf95baf1f5f5888c86f6
+DELETE /status-index/status/689251e67ed7b7071fbf4196a805cb3fe60d2322e5feaf95baf1f5f5888c86f6
 ```
 
 ### Deleting the indexes
