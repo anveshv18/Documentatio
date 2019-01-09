@@ -254,6 +254,14 @@ Delete the same result as well as in the status-index. You will find same match 
 DELETE /status-index/doc/689251e67ed7b7071fbf4196a805cb3fe60d2322e5feaf95baf1f5f5888c86f6
 ```
 
+### Deleting the indexes
+Let say if we have three indexes main-index, main-status, main-metrics. Delete all indexes by appling  wildcards rather than delteing individual indices.   
+```
+DELETE main-*
+{
+  
+}
+```
 
 ## References
 
