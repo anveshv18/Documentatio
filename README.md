@@ -269,12 +269,11 @@ DELETE main-*
 
 E.g. 
 ```
-Status-Index	   Index Refresh Interval	   spout.min.delay.queries
-www-colleges        0.5s (500ms)			        500ms
-www-all             1s                        1000ms       
-www-archives        2s                        2000ms
-non-public          1.5s (1500ms)             1500ms
-
+Status-Index      Index Refresh Interval      spout.min.delay.queries
+www-colleges        0.5s (500ms)                  500ms
+www-all             1s                            1000ms       
+www-archives        2s                            2000ms
+non-public        1.5s (1500ms)                   1500ms	
 ```
 
 
