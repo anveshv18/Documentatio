@@ -202,6 +202,19 @@ Standard analyzer: ```A, new, generation, of, advanced, ground, based, and, spac
 ### Deleting the results 
 
 To delete the records  consider the below indexes main-index & status-index
+- Deleting the records by Url with wildcards
+
+```
+POST www-some-index/_delete_by_query {
+   "query":{
+      "wildcard":{
+         "url":{
+            "value":"https://www.some.edu/apply/about*"
+         }
+      }
+   }
+}
+```
 
 - main-index results
 ```
