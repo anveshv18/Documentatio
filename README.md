@@ -289,7 +289,26 @@ www-archives        2s                            2000ms
 non-public          1.5s (1500ms)                 1500ms	
 ```
 
+## Useful Queries
 
+- Get Results by wildcards
+```
+POST www-newindex-index/_search
+{  
+  "size":30,
+   "query":{  
+      "bool":{  
+         "must":[  
+            {   "wildcard":{
+                 "url":{
+                 "value":"http://www.some.edu/college1/staff/*"
+               }}
+            }
+         ]
+      }
+   }
+}
+```
 ## References
 
 - https://www.elastic.co
