@@ -67,7 +67,7 @@ Index configuration includes
                "analyzer":"my_analyzer"
             },
             "url":{
-               "type":"keyword",
+               "type":"text",
                "index":"true",
                "store":true
             },
