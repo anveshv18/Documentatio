@@ -314,5 +314,7 @@ POST www-newindex-index/_search
 - https://www.elastic.co
 - https://qbox.io/blog
 
+## Tips
+set the Elastic Search Heap memory is half of the RAM size( 16GB ram === 8GB Heap)
 
 Still need to update...
