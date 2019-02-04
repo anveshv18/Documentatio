@@ -309,6 +309,14 @@ POST www-newindex-index/_search
    }
 }
 ```
+
+- Run Multiple Queries at single time
+You can add multiple queries includes update, delete, insert the records into the records by executing the *BULK* query.
+```
+POST _bulk
+{ "delete" : { "_index" : "www-some-index", "_type" : "doc", "_id" : "5d9fafc44a6a78cbf3c5a865f6599d26864d3780aea7bcb4180f31d294a15b39" } }
+{ "delete" : { "_index" : "www-some-index", "_type" : "doc", "_id" : "012a319711256d598589a22032d9f91cfc55700fcce8eb200a41786d8bb5b7ac" } }
+```
 ## References
 
 - https://www.elastic.co
