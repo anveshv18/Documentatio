@@ -317,6 +317,43 @@ POST _bulk
 { "delete" : { "_index" : "www-some-index", "_type" : "doc", "_id" : "5d9fafc44a6a78cbf3c5a865f6599d26864d3780aea7bcb4180f31d294a15b39" } }
 { "delete" : { "_index" : "www-some-index", "_type" : "doc", "_id" : "012a319711256d598589a22032d9f91cfc55700fcce8eb200a41786d8bb5b7ac" } }
 ```
+
+- Highlight the results 
+```
+GET www-some-index/_search
+{ "size":201,
+  "query":{
+    "query_string": {
+        "fields": [ "title", "content" ] ,
+        "query":    "query" 
+  } 
+   },
+   "highlight":{
+	       "fields":{
+		     "title": {
+            "pre_tags": [
+               "<strong>"
+            ],
+            "post_tags": [
+               "</strong>"
+            ],"no_match_size": 150
+
+         },
+         "content": {
+            "pre_tags": [
+               "<strong>"
+            ],
+            "post_tags": [
+               "</strong>"
+            ],
+            "fragment_size" : 150,
+            "number_of_fragments": 3,
+            "no_match_size": 150
+         }
+
+		  }
+}}
+```
 ## References
 
 - https://www.elastic.co
