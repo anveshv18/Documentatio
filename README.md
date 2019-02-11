@@ -276,6 +276,43 @@ DELETE main-*
 }
 ```
 
+### Ranking the results 
+```
+GET www-some-index/_search
+{
+   "_source": ["title","url"], 
+    "query": {
+        "function_score": {
+           "query": {
+    "multi_match": {
+      "operator": "and", 
+      "query": "admissions",
+      "fields": ["title","content"]
+    }
+  },
+        "functions": [
+              {
+                  "filter": { "match": { "title": "admissions" } },
+                 
+                  "weight": 10
+              },
+              {
+                  "filter": { "match": { "content": "admissions" } },
+                  "weight": 5
+              },
+              {
+                  "filter": { "match": { "url": "https://www.some.edu/admissions/new/schedule-a-visit" } },
+                  "weight": 20
+              }
+          ],
+          "max_boost": 42,
+          "score_mode": "sum",
+          "boost_mode": "multiply",
+          "min_score" : 42
+        }
+    }
+}
+```
 ### Tip:
 
 - When creating the status index make sure that the refresh interval value match with the crawler **spout.min.delay.queries** value.
