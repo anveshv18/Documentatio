@@ -5,7 +5,7 @@ Index configuration includes
   - stopwords
   - Snowball
 
-## Main Index & Mapping
+### Main Index & Mapping
 ```PUT index
 {
    "settings":{
@@ -95,7 +95,7 @@ PUT index/_settings
 }
 ```
 
-## Status Index & Mapping
+### Status Index & Mapping
 ```
 {
     "settings": {
@@ -135,7 +135,7 @@ PUT index/_settings
     }
 }
 ```
-## Metrics Index & Mapping
+### Metrics Index & Mapping
 ```
 {
   "template": "metrics*",
@@ -177,19 +177,20 @@ PUT index/_settings
   }
 }
 ```
-### Stemmer Analyzer 
+### Analyzers
+- Stemmer Analyzer 
 This analyzer is used to search the stem words if the exact words cannot find in the index. If you want to search for the keyword **"hike"** and you dont have exact match word in the index the stemmer come into place and fetch the results includes  **"hiking"**.  We are using 'English' language as our default one.
 
-### Snowball Analyzer
+- Snowball Analyzer
 This analyzer is used to soleve the problem of singular and plural tenses. This analyzer will give the results  regardless of whether we entered **"admission"** or **"admissions"** otherwise the elastic search consider those as different words. 
 
-### Stop Analyzer
+- Stop Analyzer
 This analyzer is used mainly to remove the conjunctions (e.g:and,at,in ,but, etc.,) from the search inorder to increase the efficiency of the search and this analyzers helps to remove the illegal terms based on the request (e.g: restrict the term **"skating"** to search). 
 
-### Synonyms Analyzer
+- Synonyms Analyzer
 This analyzer is used to increase the flexibility of search With minimal configuration. Suppose we want to search a keyword "center for computational relativity and gravitation", it looks bit weired and lazy to type this huge keyword and we are defining this keyword as **"ccrg"**. If you enter **"ccrg"** the results related to **"center for computational relativity and gravitation"** will get diplayed. 
 
-### Whitespace Analyzer
+- Whitespace Analyzer
 The whitespace analyzer breaks text into terms whenever it encounters a whitespace character.
 
 Consider the text: ```A new generation of advanced ground-based and space-borne telescopes.``` 
@@ -342,7 +343,7 @@ www-archives        2s                            2000ms
 non-public          1.5s (1500ms)                 1500ms	
 ```
 
-## Useful Queries
+### Useful Queries
 
 - Get Results by wildcards
 ```
@@ -399,12 +400,12 @@ GET www-some-index/_search
 		  }
 }}
 ```
-## References
+### References
 
 - https://www.elastic.co
 - https://qbox.io/blog
 
-## Tips
+### Tips
 set the Elastic Search Heap memory is half of the RAM size( 16GB ram === 8GB Heap)
 
 Still need to update...
