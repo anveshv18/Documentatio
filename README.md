@@ -1,9 +1,4 @@
-# Elastic Search Docuementation
-Index configuration includes
-  - Stemming
-  - synonyms
-  - stopwords
-  - Snowball
+# Elastic Search Documentation
 
 ### Index Configuration
 - **Main Index & Mapping**
