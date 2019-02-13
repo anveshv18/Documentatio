@@ -276,6 +276,22 @@ DELETE main-*
 }
 ```
 
+### Deleting individual Records
+```
+POST www-some-index/_delete_by_query
+{
+    "query" : {
+        "terms" : {
+            "_id" : 
+              [ "43f4bd7c28dee7b6f8cdca2c58b5b2f2aac482cf3a4314c13b22278e486c5ce0",
+              "5b1b6630e9523b47829464bfcb0a1aeacf9b1b3f694425da1ceea3b562ac2ff6",
+              "3543cc9a68162443f9caf28063c48dd1e1de2ba4c4b718031e1a60304e40c730",
+              "a6383fa17e98917d04e89b1f2f9c21b1d3132b5c096bc2a8146e915db37fb2fa" ]
+        }
+    }
+}
+```
+
 ### Ranking the results 
 ```
 GET www-some-index/_search
@@ -345,14 +361,6 @@ POST www-newindex-index/_search
       }
    }
 }
-```
-
-- Run Multiple Queries at single time
-You can add multiple queries includes update, delete, insert the records into the records by executing the *BULK* query.
-```
-POST _bulk
-{ "delete" : { "_index" : "www-some-index", "_type" : "doc", "_id" : "5d9fafc44a6a78cbf3c5a865f6599d26864d3780aea7bcb4180f31d294a15b39" } }
-{ "delete" : { "_index" : "www-some-index", "_type" : "doc", "_id" : "012a319711256d598589a22032d9f91cfc55700fcce8eb200a41786d8bb5b7ac" } }
 ```
 
 - Highlight the results 
