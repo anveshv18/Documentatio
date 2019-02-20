@@ -333,7 +333,7 @@ GET www-some-index/_search
 }
 ```
 ### Tip:
-
+- When using function_score query use `?search_type=dfs_query_then_fetch` if you are not finding relevant results.[More Info](https://www.elastic.co/guide/en/elasticsearch/guide/current/relevance-is-broken.html)
 - When creating the status index make sure that the refresh interval value match with the crawler **spout.min.delay.queries** value.
 
   **E.g.** 
