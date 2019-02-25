@@ -410,4 +410,27 @@ GET www-some-index/_search
 ### Tips
 set the Elastic Search Heap memory is half of the RAM size( 16GB ram === 8GB Heap)
 
+### Test
+```
+curl -XGET 'https://search-api.swiftype.com/api/v1/public/engines/search.json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "engine_key": "YOUR_ENGINE_KEY",
+        "q": "brothers",
+        "filters":{"books":{"in_stock":true,"genre":"fiction"}},
+        "per_page":5,
+        "page":1,
+        "fetch_fields":{
+          "books":["author","price"]
+        },
+        "highlight_fields":{
+          "books":{"title":{"size":60,"fallback":true}}
+        },
+        "search_fields":{
+          "books":["title"]
+        }
+      }'
+```
+
+
 Still need to update...
