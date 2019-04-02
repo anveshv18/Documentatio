@@ -320,7 +320,7 @@ GET www-some-index/_search
                   "weight": 5
               },
               {
-                  "filter": { "match": { "url": "https://www.some.edu/admissions/new/schedule-a-visit" } },
+                  "filter": { "match_phrase": { "url": "https://www.some.edu/admissions/new/schedule-a-visit" } },
                   "weight": 20
               }
           ],
@@ -335,6 +335,7 @@ GET www-some-index/_search
 ### Tip:
 - When using function_score query use `?search_type=dfs_query_then_fetch` if you are not finding relevant results.[More Info](https://www.elastic.co/guide/en/elasticsearch/guide/current/relevance-is-broken.html)
 - When creating the status index make sure that the refresh interval value match with the crawler **spout.min.delay.queries** value.
+- When field type is `keyword` no need to specify the `match_phrase` on query for phrase search even `match` will work and if the field type is `text` then if you want to make it as phrase search then you can use `match_phrase` on query. 
 
   **E.g.** 
 ```
