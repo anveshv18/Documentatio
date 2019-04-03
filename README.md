@@ -64,7 +64,7 @@
                "analyzer":"my_analyzer"
             },
             "url":{
-               "type":"text",
+               "type":"keyword",
                "index":"true",
                "store":true
             },
