@@ -84,6 +84,9 @@
 }
 ```
 **Note:** By Default elastic search able to search 10,000 documents. We need to change the max result limit inorder to fetch the results more than 10,000 and likewise change the max rescore to the result same as results limit. Try to use SCROLL API if you want to display the records more than 10,000 to avoid heap errors. 
+
+
+
 ```
 PUT index/_settings
 {
@@ -131,6 +134,15 @@ PUT index/_settings
         }
     }
 }
+```
+  **Note:** 
+  While creating the status index make sure that below changes needs to be done.
+```
+Status-Index      Index Refresh Interval      spout.min.delay.queries
+www-tier1-index        0.5s (500ms)                     500ms
+www-all-index             1s                            1000ms       
+www-archives        	  2s                            2000ms
+non-public          1.5s (1500ms)     	                1500ms	
 ```
 - **Metrics Index & Mapping**
 ```
@@ -336,15 +348,9 @@ GET www-some-index/_search
 - When using function_score query use `?search_type=dfs_query_then_fetch` if you are not finding relevant results.[More Info](https://www.elastic.co/guide/en/elasticsearch/guide/current/relevance-is-broken.html)
 - When creating the status index make sure that the refresh interval value match with the crawler **spout.min.delay.queries** value.
 - When field type is `keyword` no need to specify the `match_phrase` on query for phrase search even `match` will work and if the field type is `text` then if you want to make it as phrase search then you can use `match_phrase` on query. 
+- set the Elastic Search Heap memory is half of the RAM size( 16GB ram === 8GB Heap)
 
-  **E.g.** 
-```
-Status-Index      Index Refresh Interval      spout.min.delay.queries
-www-colleges        0.5s (500ms)                  500ms
-www-all             1s                            1000ms       
-www-archives        2s                            2000ms
-non-public          1.5s (1500ms)                 1500ms	
-```
+
 
 ### Useful Queries
 
@@ -408,8 +414,6 @@ GET www-some-index/_search
 - https://www.elastic.co
 - https://qbox.io/blog
 
-### Tips
-set the Elastic Search Heap memory is half of the RAM size( 16GB ram === 8GB Heap)
 
 ### Test
 ```
